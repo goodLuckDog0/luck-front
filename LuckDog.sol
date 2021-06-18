@@ -761,7 +761,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract HarmonyV2 is Context, IERC20, Ownable {
+contract LuckDog is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -786,8 +786,8 @@ contract HarmonyV2 is Context, IERC20, Ownable {
 	
 	uint256 private _minLottoBalance = 100000000;
     
-    string private _name = "HarmonyV2";
-    string private _symbol = "HarmonyV2";
+    string private _name = "LUCKDOG";
+    string private _symbol = "LDG";
     uint8 private _decimals = 9;
     
     uint256 public _taxFee = 3;
