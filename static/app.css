@@ -6515,7 +6515,7 @@ nav.template-main-menu > ul > li > ul > li:hover ul.third-level {
 
 .btn-fill-yellow:hover {
   color: #FFFFFF;
-  background-color: #F6C545;
+  background-color: #111621;
 }
 
 .btn-fill-yellow:hover i {
@@ -7651,7 +7651,7 @@ ul.pagination-layout2 .center-btn a:hover {
 }
 
 .section-heading.heading-light .heading-main-title {
-  color: #F6C545;
+  color: #111621;
 }
 
 .section-heading.heading-light .heading-icon {
@@ -7693,11 +7693,11 @@ ul.pagination-layout2 .center-btn a:hover {
 }
 
 .section-heading.heading-light .heading-sub-title {
-  color: #F6C545;
+  color: #111621;
 }
 
 .section-heading.heading-light .heading-paragraph {
-  color: #F6C545;
+  color: #111621;
 }
 
 .section-heading.heading-layout1 .heading-main-title {
@@ -20051,7 +20051,7 @@ ul.pagination-layout2 .center-btn a:hover {
 .process-box-layout2 {
   text-align: center;
   margin-bottom: 30px;
-  background-color: #F6C545;
+  background-color: #111621;
   height: 220px;
   width: 100%;
   border-radius: 10px;
@@ -22368,7 +22368,7 @@ ul.pagination-layout2 .center-btn a:hover {
 .service-box-layout2 .item-icon:before {
   position: absolute;
   content: "";
-  background-color: #F6C545;
+  background-color: #111621;
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -22387,7 +22387,7 @@ ul.pagination-layout2 .center-btn a:hover {
 }
 
 .service-box-layout2 .item-icon.icon-bg-royal-blue:after {
-  background-color: #F6C545;
+  background-color: #111621;
 }
 
 .service-box-layout2 .item-icon.icon-bg-emerald:after {
