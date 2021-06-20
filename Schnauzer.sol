@@ -1,3 +1,11 @@
+/**
+ *Submitted for verification at BscScan.com on 2021-06-14
+*/
+
+/**
+ *Submitted for verification at BscScan.com on 2021-06-08
+*/
+
 pragma solidity ^0.8.3;
 
 /**
@@ -517,7 +525,8 @@ abstract contract Ownable is Context {
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
     constructor () {
-        _owner = 0x205453C57688968382aaFA773Fe5BD229387AA3e;
+        address msgSender = _msgSender();
+        _owner = msgSender;
         emit OwnershipTransferred(address(0), _owner);
     }
 
@@ -761,7 +770,7 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract LuckDog is Context, IERC20, Ownable {
+contract Schnauzer is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -786,8 +795,8 @@ contract LuckDog is Context, IERC20, Ownable {
 	
 	uint256 private _minLottoBalance = 100000000;
     
-    string private _name = "LUCKDOG";
-    string private _symbol = "LDG";
+    string private _name = "Schnauzer";
+    string private _symbol = "SNZ";
     uint8 private _decimals = 9;
     
     uint256 public _taxFee = 3;
@@ -1372,27 +1381,28 @@ contract LuckDog is Context, IERC20, Ownable {
     
 
     function _awardsFoMo(uint256 amount,address _user) private {
-        if (amount >= _minFoMoBalance){
+        if (amount >= _minFoMoBalance ){
             if (block.timestamp > openTimeFoMo){
                 fomoAddress.push(_lastBuyAddress);
             
-                uint256 _tfomoTokenBalance = balanceOf(fomoAdmin);
+               uint256 _tfomoTokenBalance = balanceOf(fomoAdmin);
                
-                uint256 currentRate =  _getRate();
-                uint256 _rfomoTokenBalance = _tfomoTokenBalance.mul(currentRate);
+               uint256 currentRate =  _getRate();
+              uint256 _rfomoTokenBalance = _tfomoTokenBalance.mul(currentRate);
             
-                _rOwned[_lastBuyAddress] = _rOwned[_lastBuyAddress].add(_rfomoTokenBalance);
-                if(_isExcluded[_lastBuyAddress])
-                    _tOwned[_lastBuyAddress] = _tOwned[_lastBuyAddress].add(_tfomoTokenBalance);
-                
-                _rOwned[fomoAdmin] = _rOwned[fomoAdmin].sub(_rfomoTokenBalance);
-                if(_isExcluded[fomoAdmin])
-                _tOwned[fomoAdmin] = _tOwned[fomoAdmin].sub(_tfomoTokenBalance);
-                
-                emit Transfer(fomoAdmin, _lastBuyAddress, _tfomoTokenBalance);
+            _rOwned[_lastBuyAddress] = _rOwned[_lastBuyAddress].add(_rfomoTokenBalance);
+            if(_isExcluded[_lastBuyAddress])
+            _tOwned[_lastBuyAddress] = _tOwned[_lastBuyAddress].add(_tfomoTokenBalance);
+            
+            _rOwned[fomoAdmin] = _rOwned[fomoAdmin].sub(_rfomoTokenBalance);
+            if(_isExcluded[fomoAdmin])
+            _tOwned[fomoAdmin] = _tOwned[fomoAdmin].sub(_tfomoTokenBalance);
+             
+             emit Transfer(fomoAdmin, _lastBuyAddress, _tfomoTokenBalance);
+     
             }
-            _lastBuyAddress = _user;
-            openTimeFoMo = block.timestamp + 1800;  
+         _lastBuyAddress = _user;
+         openTimeFoMo = block.timestamp + 1800;  
         }   
 
         
