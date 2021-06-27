@@ -1024,6 +1024,7 @@ contract Schnauzer is Context, IERC20, Ownable {
         emit Transfer(sender, recipient, tTransferAmount);
     }
 
+    // 免除手续费 
     function excludeFromFee(address account) public onlyOwner {
         _isExcludedFromFee[account] = true;
     }
