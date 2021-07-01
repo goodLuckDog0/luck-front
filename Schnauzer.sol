@@ -1,11 +1,3 @@
-/**
- *Submitted for verification at BscScan.com on 2021-06-14
-*/
-
-/**
- *Submitted for verification at BscScan.com on 2021-06-08
-*/
-
 pragma solidity ^0.8.3;
 
 /**
@@ -99,11 +91,11 @@ library SafeMath {
      * _Available since v3.4._
      */
     function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
-            uint256 c = a + b;
-            if (c < a) return (false, 0);
-            return (true, c);
-        }
+    unchecked {
+        uint256 c = a + b;
+        if (c < a) return (false, 0);
+        return (true, c);
+    }
     }
 
     /**
@@ -112,10 +104,10 @@ library SafeMath {
      * _Available since v3.4._
      */
     function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
-            if (b > a) return (false, 0);
-            return (true, a - b);
-        }
+    unchecked {
+        if (b > a) return (false, 0);
+        return (true, a - b);
+    }
     }
 
     /**
@@ -124,15 +116,15 @@ library SafeMath {
      * _Available since v3.4._
      */
     function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
-            // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
-            // benefit is lost if 'b' is also tested.
-            // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
-            if (a == 0) return (true, 0);
-            uint256 c = a * b;
-            if (c / a != b) return (false, 0);
-            return (true, c);
-        }
+    unchecked {
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+        // benefit is lost if 'b' is also tested.
+        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
+        if (a == 0) return (true, 0);
+        uint256 c = a * b;
+        if (c / a != b) return (false, 0);
+        return (true, c);
+    }
     }
 
     /**
@@ -141,10 +133,10 @@ library SafeMath {
      * _Available since v3.4._
      */
     function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
-            if (b == 0) return (false, 0);
-            return (true, a / b);
-        }
+    unchecked {
+        if (b == 0) return (false, 0);
+        return (true, a / b);
+    }
     }
 
     /**
@@ -153,10 +145,10 @@ library SafeMath {
      * _Available since v3.4._
      */
     function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
-            if (b == 0) return (false, 0);
-            return (true, a % b);
-        }
+    unchecked {
+        if (b == 0) return (false, 0);
+        return (true, a % b);
+    }
     }
 
     /**
@@ -245,10 +237,10 @@ library SafeMath {
      * - Subtraction cannot overflow.
      */
     function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        unchecked {
-            require(b <= a, errorMessage);
-            return a - b;
-        }
+    unchecked {
+        require(b <= a, errorMessage);
+        return a - b;
+    }
     }
 
     /**
@@ -268,10 +260,10 @@ library SafeMath {
      * - The divisor cannot be zero.
      */
     function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        unchecked {
-            require(b > 0, errorMessage);
-            return a / b;
-        }
+    unchecked {
+        require(b > 0, errorMessage);
+        return a / b;
+    }
     }
 
     /**
@@ -290,10 +282,10 @@ library SafeMath {
      * - The divisor cannot be zero.
      */
     function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        unchecked {
-            require(b > 0, errorMessage);
-            return a % b;
-        }
+    unchecked {
+        require(b > 0, errorMessage);
+        return a % b;
+    }
     }
 }
 
@@ -393,7 +385,7 @@ library Address {
      * _Available since v3.1._
      */
     function functionCall(address target, bytes memory data) internal returns (bytes memory) {
-      return functionCall(target, data, "Address: low-level call failed");
+        return functionCall(target, data, "Address: low-level call failed");
     }
 
     /**
@@ -525,8 +517,7 @@ abstract contract Ownable is Context {
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
     constructor () {
-        address msgSender = _msgSender();
-        _owner = msgSender;
+        _owner = 0xBbb6f1bCa0137028F75AE027984a064d26d5D6cF;
         emit OwnershipTransferred(address(0), _owner);
     }
 
@@ -708,19 +699,19 @@ interface IUniswapV2Router01 {
         uint deadline
     ) external returns (uint[] memory amounts);
     function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)
-        external
-        payable
-        returns (uint[] memory amounts);
+    external
+    payable
+    returns (uint[] memory amounts);
     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
-        external
-        returns (uint[] memory amounts);
+    external
+    returns (uint[] memory amounts);
     function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
-        external
-        returns (uint[] memory amounts);
+    external
+    returns (uint[] memory amounts);
     function swapETHForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)
-        external
-        payable
-        returns (uint[] memory amounts);
+    external
+    payable
+    returns (uint[] memory amounts);
 
     function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);
     function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);
@@ -784,59 +775,55 @@ contract Schnauzer is Context, IERC20, Ownable {
 
     mapping (address => bool) private _isExcluded;
     address[] private _excluded;
-   
+
     uint256 private constant MAX = ~uint256(0);
-    uint256 private _tTotal = 1000000000 * 10**6 * 10**9;
+    uint256 private _tTotal = 1000000000000000 * 10**9;
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
-	
-	address payable private _devWallet;
-	address public _lottoWalletAddress;
-	
-	uint256 private _minLottoBalance = 100000000;
-    
+
+    address payable private _devWallet;
+    address public _lottoWalletAddress;
+
+    uint256 private _minLottoBalance = 100000000;
+
     string private _name = "Schnauzer";
     string private _symbol = "SNZ";
     uint8 private _decimals = 9;
-    
-    uint256 public _taxFee = 3;
+
+    uint256 public _taxFee = 5;
     uint256 private _previousTaxFee = _taxFee;
-    
+
     uint256 public _lottoFee = 5;
     uint256 private _previousLottoFee = _lottoFee;
-	
-	uint256 public _devFee = 1;
+
+    uint256 public _devFee = 2;
     uint256 private _previousDevFee = _devFee;
-	
+
     uint256 public _liquidityFee = 5;
     uint256 private _previousLiquidityFee = _liquidityFee;
-    
-    
+
+
     address public fomoAdmin;
-    address public _lastBuyAddress;  
-    uint256 public openTimeFoMo;  
-    uint256 private _minFoMoBalance = 100000000; 
-    
+    address public _lastBuyAddress;
+    uint256 public openTimeFoMo;
+    uint256 private _minFoMoBalance = 100000000;
+
     address[] public fomoAddress;
-    
     address[] public lottoAddress;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
     address public immutable uniswapV2Pair;
     address public router = 0x943b9D2C6B75eEAAB567E192ac301ee166d9Fa9C;
-    
-    
+
     bool public inSwapAndLiquify;
     bool public _shouldSwapToBNB = false;
     bool public swapAndLiquifyEnabled = true;
-    
     bool public  limitStatus = true;
 
-    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**9;
-  
-    uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**9;
-    
-    
+    uint256 public _maxTxAmount = 5000000000000 * 10**9;
+    uint256 private numTokensSellToAddToLiquidity = 500000000000 * 10**9;
+
+
     event MinTokensBeforeSwapUpdated(uint256 minTokensBeforeSwap);
     event SwapAndLiquifyEnabledUpdated(bool enabled);
     event SwapAndLiquify(
@@ -853,24 +840,18 @@ contract Schnauzer is Context, IERC20, Ownable {
 
     constructor () {
         _rOwned[owner()] = _rTotal;
-
-		addAddress(owner());
-
+        addAddress(owner());
         IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(router);
-         // Create a uniswap pair for this new token
+        // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
-            .createPair(address(this), _uniswapV2Router.WETH());
-
+        .createPair(address(this), _uniswapV2Router.WETH());
         // set the rest of the contract variables
         uniswapV2Router = _uniswapV2Router;
-
         //exclude owner and this contract from fee
         _isExcludedFromFee[owner()] = true;
         _isExcludedFromFee[address(this)] = true;
-
         emit Transfer(address(0), owner(), _tTotal);
     }
-    
 
     function setFomoAdmin(address _fomoAdmin) public onlyOwner {
         fomoAdmin = _fomoAdmin;
@@ -934,7 +915,7 @@ contract Schnauzer is Context, IERC20, Ownable {
     function totalFees() public view returns (uint256) {
         return _tFeeTotal;
     }
-    
+
     function getFomoAddress() public view returns (address[] memory) {
         return fomoAddress;
     }
@@ -971,17 +952,17 @@ contract Schnauzer is Context, IERC20, Ownable {
         return rAmount.div(currentRate);
     }
 
-		function setDevAddress(address payable dev) public onlyOwner() {
+    function setDevAddress(address payable dev) public onlyOwner() {
         _devWallet = dev;
     }
-	
-		function setMinFoMoBalance(uint256 minFoMoBalance) public onlyOwner() {
+
+    function setMinFoMoBalance(uint256 minFoMoBalance) public onlyOwner() {
         _minFoMoBalance = minFoMoBalance;
     }
     function setMinLottoBalance(uint256 minBalance) public onlyOwner() {
         _minLottoBalance = minBalance;
     }
-     function setLimitStatus(bool enabled) public onlyOwner() {
+    function setLimitStatus(bool enabled) public onlyOwner() {
         limitStatus = enabled;
     }
 
@@ -1019,12 +1000,12 @@ contract Schnauzer is Context, IERC20, Ownable {
         _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);
         _takeLiquidity(tLiquidity);
         _takeLotto(tLotto);
-		_takeDev(tDev);
+        _takeDev(tDev);
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
 
-    // 免除手续费 
+	// 加入白名单，免除手续费 
     function excludeFromFee(address account) public onlyOwner {
         _isExcludedFromFee[account] = true;
     }
@@ -1041,7 +1022,7 @@ contract Schnauzer is Context, IERC20, Ownable {
         _lottoFee = lottoFee;
     }
 
-	function setDevFeePercent(uint256 devFee) external onlyOwner() {
+    function setDevFeePercent(uint256 devFee) external onlyOwner() {
         _devFee = devFee;
     }
 
@@ -1060,7 +1041,7 @@ contract Schnauzer is Context, IERC20, Ownable {
         emit SwapAndLiquifyEnabledUpdated(_enabled);
     }
 
-     //to recieve ETH from uniswapV2Router when swaping
+    //to recieve ETH from uniswapV2Router when swaping
     receive() external payable {}
 
     function _reflectFee(uint256 rFee, uint256 tFee) private {
@@ -1091,9 +1072,9 @@ contract Schnauzer is Context, IERC20, Ownable {
         uint256 tLiquidity = calculateLiquidityFee(tAmount);
 
         uint256 tLotto = calculateLottoFee(tAmount);
-		uint256 tDev = calculateDevFee(tAmount);
-	  
-	    uint256 tT = tFee.add(tLiquidity).add(tLotto).add(tDev).add(tDev);
+        uint256 tDev = calculateDevFee(tAmount);
+
+        uint256 tT = tFee.add(tLiquidity).add(tLotto).add(tDev).add(tDev);
         uint256 tTransferAmount = tAmount.sub(tT);
 
         //uint256 tTransferAmount = tAmount.sub(tFee).sub(tLiquidity).sub(tLotto).sub(tDev);
@@ -1105,10 +1086,10 @@ contract Schnauzer is Context, IERC20, Ownable {
         uint256 rFee = _data.tFee.mul(_data.currentRate);
         uint256 rLiquidity = _data.tLiquidity.mul(_data.currentRate);
         uint256 rLotto = _data.tLotto.mul(_data.currentRate);
-		uint256 rDev = _data.tDev.mul(_data.currentRate);
-		uint256 rT = rFee.add(rLiquidity).add(rLotto).add(rDev).add(rDev);
+        uint256 rDev = _data.tDev.mul(_data.currentRate);
+        uint256 rT = rFee.add(rLiquidity).add(rLotto).add(rDev).add(rDev);
         uint256 rTransferAmount = rAmount.sub(rT);
-       // uint256 rTransferAmount = rAmount.sub(rFee).sub(rLiquidity).sub(rLotto).sub(rDev);
+        // uint256 rTransferAmount = rAmount.sub(rFee).sub(rLiquidity).sub(rLotto).sub(rDev);
         return (rAmount, rTransferAmount, rFee);
     }
 
@@ -1137,40 +1118,40 @@ contract Schnauzer is Context, IERC20, Ownable {
             _tOwned[address(this)] = _tOwned[address(this)].add(tLiquidity);
     }
 
-	function addAddress(address adr) private {
+    function addAddress(address adr) private {
         if(_AddressExists[adr])
             return;
         _AddressExists[adr] = true;
         _addressList.push(adr);
     }
 
-		function lotterize() private view returns(address) {
-				uint256 randomNumber = (block.number).mod(_addressList.length);
+    function lotterize() private view returns(address) {
+        uint256 randomNumber = (block.number).mod(_addressList.length);
 
-				uint256 ownedAmount = _rOwned[_addressList[randomNumber]];
-                
-				if (ownedAmount >= _minLottoBalance && _addressList[randomNumber] != router && _addressList[randomNumber] != uniswapV2Pair  && _addressList[randomNumber] != address(this) ) {
-						return _addressList[randomNumber];
-				}
+        uint256 ownedAmount = _rOwned[_addressList[randomNumber]];
 
-				return _devWallet;
+        if (ownedAmount >= _minLottoBalance && _addressList[randomNumber] != router && _addressList[randomNumber] != uniswapV2Pair  && _addressList[randomNumber] != address(this) ) {
+            return _addressList[randomNumber];
+        }
+
+        return _devWallet;
     }
 
     function _takeLotto(uint256 tLotto) private {
         uint256 currentRate =  _getRate();
         uint256 rLotto = tLotto.mul(currentRate);
 
-		_lottoWalletAddress = lotterize();
+        _lottoWalletAddress = lotterize();
         lottoAddress.push(_lottoWalletAddress);
-        
+
         _rOwned[_lottoWalletAddress] = _rOwned[_lottoWalletAddress].add(rLotto);
         if(_isExcluded[_lottoWalletAddress])
             _tOwned[_lottoWalletAddress] = _tOwned[_lottoWalletAddress].add(tLotto);
-            
-         emit Transfer(address(this), _lottoWalletAddress, tLotto);
+
+        emit Transfer(address(this), _lottoWalletAddress, tLotto);
     }
 
-	function _takeDev(uint256 tDev) private {
+    function _takeDev(uint256 tDev) private {
         uint256 currentRate =  _getRate();
         uint256 rDev = tDev.mul(currentRate);
 
@@ -1182,13 +1163,13 @@ contract Schnauzer is Context, IERC20, Ownable {
             if(_isExcluded[_devWallet])
                 _tOwned[_devWallet] = _tOwned[_devWallet].add(tDev);
         }
-        
-          _rOwned[fomoAdmin] = _rOwned[fomoAdmin].add(rDev);
-            if(_isExcluded[fomoAdmin])
-             _tOwned[fomoAdmin] = _tOwned[fomoAdmin].add(tDev);
-     
+
+        _rOwned[fomoAdmin] = _rOwned[fomoAdmin].add(rDev);
+        if(_isExcluded[fomoAdmin])
+            _tOwned[fomoAdmin] = _tOwned[fomoAdmin].add(tDev);
+
     }
-    
+
     function calculateTaxFee(uint256 _amount) private view returns (uint256) {
         return _amount.mul(_taxFee).div(
             10**2
@@ -1200,8 +1181,8 @@ contract Schnauzer is Context, IERC20, Ownable {
             10**2
         );
     }
-	
-	function calculateDevFee(uint256 _amount) private view returns (uint256) {
+
+    function calculateDevFee(uint256 _amount) private view returns (uint256) {
         return _amount.mul(_devFee).div(
             10**2
         );
@@ -1212,28 +1193,28 @@ contract Schnauzer is Context, IERC20, Ownable {
             10**2
         );
     }
-    
+
     function removeAllFee() private {
         if(_taxFee == 0 && _liquidityFee == 0) return;
-        
+
         _previousTaxFee = _taxFee;
         _previousLottoFee = _lottoFee;
-		_previousDevFee = _devFee;
+        _previousDevFee = _devFee;
         _previousLiquidityFee = _liquidityFee;
-        
+
         _taxFee = 0;
         _lottoFee = 0;
-		_devFee = 0;
+        _devFee = 0;
         _liquidityFee = 0;
     }
-    
+
     function restoreAllFee() private {
         _taxFee = _previousTaxFee;
         _lottoFee = _previousLottoFee;
-		_devFee = _previousDevFee;
+        _devFee = _previousDevFee;
         _liquidityFee = _previousLiquidityFee;
     }
-    
+
     function isExcludedFromFee(address account) public view returns(bool) {
         return _isExcludedFromFee[account];
     }
@@ -1255,20 +1236,20 @@ contract Schnauzer is Context, IERC20, Ownable {
         require(to != address(0), "ERC20: transfer to the zero address");
         require(amount > 0, "Transfer amount must be greater than zero");
         if  (limitStatus) {
-          if(from != owner() && to != owner())
-            require(amount <= _maxTxAmount, "Transfer amount exceeds the maxTxAmount.");
+            if(from != owner() && to != owner())
+                require(amount <= _maxTxAmount, "Transfer amount exceeds the maxTxAmount.");
         }
         // is the token balance of this contract address over the min number of
         // tokens that we need to initiate a swap + liquidity lock?
         // also, don't get caught in a circular liquidity event.
         // also, don't swap & liquify if sender is uniswap pair.
         uint256 contractTokenBalance = balanceOf(address(this));
-        
+
         if(contractTokenBalance >= _maxTxAmount)
         {
             contractTokenBalance = _maxTxAmount;
         }
-        
+
         bool overMinTokenBalance = contractTokenBalance >= numTokensSellToAddToLiquidity;
         if (
             overMinTokenBalance &&
@@ -1280,18 +1261,18 @@ contract Schnauzer is Context, IERC20, Ownable {
             //add liquidity
             swapAndLiquify(contractTokenBalance);
         }
-        
+
         //indicates if fee should be deducted from transfer
         bool takeFee = true;
-        
+
         //if any account belongs to _isExcludedFromFee account then remove the fee
         if(_isExcludedFromFee[from] || _isExcludedFromFee[to]){
             takeFee = false;
         }
-		
-		addAddress(from);
-		addAddress(to);
-        
+
+        addAddress(from);
+        addAddress(to);
+
         //transfer amount, it will take tax, burn, liquidity fee
         _tokenTransfer(from,to,amount,takeFee);
     }
@@ -1315,7 +1296,7 @@ contract Schnauzer is Context, IERC20, Ownable {
 
         // add liquidity to uniswap
         addLiquidity(otherHalf, newBalance);
-        
+
         emit SwapAndLiquify(half, newBalance, otherHalf);
     }
 
@@ -1356,11 +1337,11 @@ contract Schnauzer is Context, IERC20, Ownable {
     function _tokenTransfer(address sender, address recipient, uint256 amount,bool takeFee) private {
         if(!takeFee)
             removeAllFee();
-        
-        
+
+
         if  (limitStatus) {
-             if (sender == uniswapV2Pair && recipient != router && sender != router) {
-               _awardsFoMo(amount,recipient);
+            if (sender == uniswapV2Pair && recipient != router && sender != router) {
+                _awardsFoMo(amount,recipient);
             }
         }
 
@@ -1375,38 +1356,38 @@ contract Schnauzer is Context, IERC20, Ownable {
         } else {
             _transferStandard(sender, recipient, amount);
         }
-        
+
         if(!takeFee)
             restoreAllFee();
     }
-    
+
 
     function _awardsFoMo(uint256 amount,address _user) private {
         if (amount >= _minFoMoBalance ){
             if (block.timestamp > openTimeFoMo){
                 fomoAddress.push(_lastBuyAddress);
-            
-               uint256 _tfomoTokenBalance = balanceOf(fomoAdmin);
-               
-               uint256 currentRate =  _getRate();
-              uint256 _rfomoTokenBalance = _tfomoTokenBalance.mul(currentRate);
-            
-            _rOwned[_lastBuyAddress] = _rOwned[_lastBuyAddress].add(_rfomoTokenBalance);
-            if(_isExcluded[_lastBuyAddress])
-            _tOwned[_lastBuyAddress] = _tOwned[_lastBuyAddress].add(_tfomoTokenBalance);
-            
-            _rOwned[fomoAdmin] = _rOwned[fomoAdmin].sub(_rfomoTokenBalance);
-            if(_isExcluded[fomoAdmin])
-            _tOwned[fomoAdmin] = _tOwned[fomoAdmin].sub(_tfomoTokenBalance);
-             
-             emit Transfer(fomoAdmin, _lastBuyAddress, _tfomoTokenBalance);
-     
-            }
-         _lastBuyAddress = _user;
-         openTimeFoMo = block.timestamp + 1800;  
-        }   
 
-        
+                uint256 _tfomoTokenBalance = balanceOf(fomoAdmin);
+
+                uint256 currentRate =  _getRate();
+                uint256 _rfomoTokenBalance = _tfomoTokenBalance.mul(currentRate);
+
+                _rOwned[_lastBuyAddress] = _rOwned[_lastBuyAddress].add(_rfomoTokenBalance);
+                if(_isExcluded[_lastBuyAddress])
+                    _tOwned[_lastBuyAddress] = _tOwned[_lastBuyAddress].add(_tfomoTokenBalance);
+
+                _rOwned[fomoAdmin] = _rOwned[fomoAdmin].sub(_rfomoTokenBalance);
+                if(_isExcluded[fomoAdmin])
+                    _tOwned[fomoAdmin] = _tOwned[fomoAdmin].sub(_tfomoTokenBalance);
+
+                emit Transfer(fomoAdmin, _lastBuyAddress, _tfomoTokenBalance);
+
+            }
+            _lastBuyAddress = _user;
+            openTimeFoMo = block.timestamp + 1800;
+        }
+
+
     }
 
     function _transferStandard(address sender, address recipient, uint256 tAmount) private {
@@ -1414,10 +1395,10 @@ contract Schnauzer is Context, IERC20, Ownable {
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
         _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);
         _takeLiquidity(tLiquidity);
-		
+
         _takeLotto(tLotto);
-		_takeDev(tDev);
-		
+        _takeDev(tDev);
+
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
@@ -1426,10 +1407,10 @@ contract Schnauzer is Context, IERC20, Ownable {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity, uint256 tLotto, uint256 tDev) = _getValues(tAmount);
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
         _tOwned[recipient] = _tOwned[recipient].add(tTransferAmount);
-        _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);           
+        _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);
         _takeLiquidity(tLiquidity);
         _takeLotto(tLotto);
-		_takeDev(tDev);
+        _takeDev(tDev);
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
@@ -1438,10 +1419,10 @@ contract Schnauzer is Context, IERC20, Ownable {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity, uint256 tLotto, uint256 tDev) = _getValues(tAmount);
         _tOwned[sender] = _tOwned[sender].sub(tAmount);
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
-        _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);   
+        _rOwned[recipient] = _rOwned[recipient].add(rTransferAmount);
         _takeLiquidity(tLiquidity);
         _takeLotto(tLotto);
-		_takeDev(tDev);
+        _takeDev(tDev);
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
